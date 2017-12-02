@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"> 
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Doctor</title>
+        <meta name="description" content="">
+        <!-- 
+    	Volton Template
+    	http://www.templatemo.com/tm-441-volton
+        -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/font-awesome.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/templatemo-style.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    
+        <div class="responsive-header visible-xs visible-sm">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="top-section">
+                            <div class="profile-image">
+                                <img src="img/drramesh.jpg" alt="Volton">
+                            </div>
+                            <div class="profile-content">
+                                <h3 class="profile-title" th:text="${Doctor.getName()}">Dr. Ramesh Sharma</h3>
+                                <p class="profile-description" th:text="${Doctor.getDepartment()}">Dept. of E&T </p>
+								<p class="profile-description">Govt. Hospital of Ajmer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="toggle-menu"><i class="fa fa-bars"></i></a>
+                <div class="main-navigation responsive-menu">
+                    <ul class="navigation">
+                        <li><a href="#top"><i class="fa fa-home"></i>Home</a></li>
+                        <li><a href="#about"><i class="fa fa-user"></i>Patient Status</a></li>
+                        <li><a href="#projects"><i class="fa fa-newspaper-o"></i>My Status</a></li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="sidebar-menu hidden-xs hidden-sm">
+            <div class="top-section">
+                <div class="profile-image">
+                    <img src="img/drramesh.jpg" alt="Volton">
+                </div>
+                <h3 class="profile-title" th:text="${Doctor.getName()}">Dr. Ramesh Sharma</h3>
+                <p class="profile-description" th:text="${Doctor.getDepartment()}">Dept. of E&T</p>
+            </div> <!-- top-section -->
+            <div class="main-navigation">
+                <ul class="navigation">
+                    <li><a href="#top"><i class="fa fa-globe"></i>Welcome</a></li>
+                    <li><a href="#about"><i class="fa fa-pencil"></i>Patient Status</a></li>
+                    <li><a href="#projects"><i class="fa fa-paperclip"></i>My Status</a></li>
+                    </ul>
+            </div> <!-- .main-navigation -->
+             <!-- .social-icons -->
+        </div> <!-- .sidebar-menu -->
+        
+
+        <div class="banner-bg" id="top">
+            <div class="banner-overlay"></div>
+            <div class="welcome-text">
+                <h2 th:text="${Doctor.getName()}">Dr. Ramesh Sharma 
+                <h2 th:text="${Doctor.getEducation()}"> MBBS,MD</h2>
+                <h5 th:text="${Doctor.getBioData()}">I am working for 5 years as doctor.</h5>
+            </div>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="fluid-container">
+
+                <div class="content-wrapper">
+                
+                    <!-- ABOUT -->
+                    <div class="page-section" id="contact">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="widget-title">Patient Status</h4>
+                            <p>Number of Patients left in queue are : </p>
+                            <p th:text="${TotalPatients}"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+					<div class="contact-form">
+                            <fieldset class="col-md-4 col-sm-6">
+                                <input type="number" id="your-name">
+                            </fieldset>
+                        
+						</div>
+                    </div> <!-- .contact-form -->
+                    </div>
+                    
+                    <!-- PROJECTS -->
+                    <div class="page-section" id="projects">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="widget-title">My Status</h4>
+                            <form method="post"action="changeStatus">
+                            <input type="radio" name="Status" checked="checked" value="Online">Online<br>
+							<input type="radio" name="Status" value="Offline">Offline
+							<input type="hidden" name="username" th:value="${Doctor.getUsername()}"/>
+							<input type="submit" value="Change Status">
+							</form>
+							</div>
+                    </div>
+                     <!-- .projects-holder -->
+                    </div>
+                    <hr>
+
+                    <!-- CONTACT -->
+                    
+                    <hr>
+
+                    <div class="row" id="footer">
+                        <div class="col-md-12 text-center">
+                            <p class="copyright-text">Copyright &copy; 2017 Code Daemons</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <script src="js/vendor/jquery-1.10.2.min.js"></script>
+        <script src="js/min/plugins.min.js"></script>
+        <script src="js/min/main.min.js"></script>
+
+    </body>
+</html>
